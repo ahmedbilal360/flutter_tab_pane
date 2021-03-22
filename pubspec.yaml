@@ -1,8 +1,8 @@
 name: flutter_tab_pane
-description: A new Flutter package.
+description: Tab Pane Like Bootstrap.
 version: 0.0.1
-author:"Ahmed Bilal<ahmedbilal503@gmail.com>"
-homepage:
+author: Ahmed Bilal<ahmedbilal503@gmail.com>
+homepage: https://github.com/ahmedbilalsolexp/flutter_tab_pane
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
