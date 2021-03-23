@@ -1,6 +1,8 @@
 # flutter_tab_pane
 
-A new Flutter package.
+With this package you can implement tab pane like bootstrap
+
+Please see the example for more information
 
 ## Getting Started
 

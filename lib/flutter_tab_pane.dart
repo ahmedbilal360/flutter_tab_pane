@@ -2,11 +2,19 @@ library flutter_tab_pane;
 
 import 'package:flutter/material.dart';
 
-/// A Calculator.
 class TabPane extends StatefulWidget {
-  List<TabPaneItem> items;
+  final List<TabPaneItem> items;
+  final Color selectedTabColor;
+  final Color unSelectedTabColor;
+  final Color borderColor;
+  final double tabRadius;
 
-  TabPane({@required this.items});
+  TabPane(
+      {@required this.items,
+      this.selectedTabColor = Colors.orange,
+      this.unSelectedTabColor = Colors.white,
+      this.borderColor = Colors.orange,
+      this.tabRadius = 10});
 
   @override
   _TabPaneState createState() => _TabPaneState();
@@ -21,7 +29,7 @@ class _TabPaneState extends State<TabPane> {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: 32,
@@ -41,23 +49,28 @@ class _TabPaneState extends State<TabPane> {
                       width: (widget.items[index].name.length * 10).toDouble(),
                       padding: EdgeInsets.all(0),
                       decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.orange),
+                          border:
+                              Border.all(width: 1, color: widget.borderColor),
                           color: _current_index == index
-                              ? Colors.orange
-                              : Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                              ? widget.selectedTabColor
+                              : widget.unSelectedTabColor,
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(widget.tabRadius))),
                       child: Center(
                           child: Text(
                         widget.items[index].name,
                         style: TextStyle(
                           color: _current_index != index
-                              ? Colors.orange
-                              : Colors.white,
+                              ? widget.selectedTabColor
+                              : widget.unSelectedTabColor,
                         ),
                       )),
                     ),
                   );
                 }),
+          ),
+          SizedBox(
+            height: 5,
           ),
           IndexedStack(
             index: _current_index,
