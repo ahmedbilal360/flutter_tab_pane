@@ -88,5 +88,5 @@ class TabPaneItem {
   String name;
   String content;
 
-  TabPaneItem({this.name, this.content});
+  TabPaneItem({@required this.name, @required this.content});
 }
